@@ -1,8 +1,9 @@
 certifi==2024.8.30
 charset-normalizer==3.4.0
+colorama==0.4.6
 filelock==3.16.1
 fsspec==2024.10.0
-huggingface_hub==0.26.2
+huggingface-hub==0.26.2
 idna==3.10
 imutils==0.5.4
 Jinja2==3.1.4
@@ -15,11 +16,11 @@ packaging==24.1
 pillow==11.0.0
 PyYAML==6.0.2
 requests==2.32.3
-RPi.GPIO==0.7.1
 safetensors==0.4.5
 sympy==1.13.1
 timm==1.0.11
-torch==2.5.1
+torch==2.5.1+cu118
+torchaudio==2.5.1+cu118
 torchvision==0.20.1
 tqdm==4.66.6
 typing_extensions==4.12.2
