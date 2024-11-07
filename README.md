@@ -1,5 +1,5 @@
 
-://blog.roboflow.com/how-to-use-mobilenetv4-for-classification/
+https://blog.roboflow.com/how-to-use-mobilenetv4-for-classification/
 
 https://github.com/jiaowoguanren0615/MobileNetV4/blob/main/README.md
 
@@ -8,3 +8,7 @@ https://gist.githubusercontent.com/yrevar/942d3a0ac09ec9e5eb3a/raw/238f720ff059c
 https://snapcraft.io/install/cheese/raspbian
 
 https://www.circuitbasics.com/introduction-to-computer-vision-using-opencv-and-raspberry-pi/
+
+https://qengineering.eu/install-opencv-on-raspberry-pi.html
+
+https://stackoverflow.com/questions/31389655/install-opencv-into-a-virtual-environment
