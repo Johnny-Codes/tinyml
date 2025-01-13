@@ -9,6 +9,7 @@ import seaborn as sns
 from PIL import Image
 import numpy as np
 import json
+from torchinfo import summary
 
 # Define data transformations
 data_transforms = {
@@ -122,7 +123,10 @@ def main():
     num_ftrs = model.classifier[3].in_features
     model.classifier[3] = nn.Linear(num_ftrs, len(full_dataset.classes))
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    print(f"using device {device}")
     model = model.to(device)
+
+    print(summary(model, (10, 3, 224, 224)))
 
     # Define loss function and optimizer
     criterion = nn.CrossEntropyLoss()
@@ -148,9 +152,17 @@ def main():
         # Create dataloaders
         dataloaders = {
             "train": DataLoader(
-                train_dataset, batch_size=32, shuffle=True, num_workers=4
+                train_dataset,
+                batch_size=32,
+                shuffle=True,
+                num_workers=4,
             ),
-            "val": DataLoader(val_dataset, batch_size=32, shuffle=True, num_workers=4),
+            "val": DataLoader(
+                val_dataset,
+                batch_size=32,
+                shuffle=True,
+                num_workers=4,
+            ),
         }
         dataset_sizes = {"train": len(train_dataset), "val": len(val_dataset)}
 
@@ -194,7 +206,7 @@ def main():
             print(f"{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}")
 
         # Save sample images with predictions
-        if epoch % 5 == 0:  # Save every 5 epochs
+        if epoch % 5 == 0 or epoch == num_epochs - 1:
             inputs, labels = next(iter(dataloaders["val"]))
             inputs = inputs.to(device)
             labels = labels.to(device)
