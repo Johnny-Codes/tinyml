@@ -5,7 +5,8 @@ pokemon.py
 backup/
 mobilenetsmall
 resnetv1
-casting*
+casting_data
+casting_512x512
 testing_adam
 resnetv1
 img_ftr_layers
