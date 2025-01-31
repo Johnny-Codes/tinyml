@@ -13,3 +13,6 @@ img_ftr_layers
 __pycache__
 deconv_maps
 filter_kernals
+boxes - Copy
+boxes_split
+filter_kernels
