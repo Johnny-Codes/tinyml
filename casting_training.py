@@ -35,16 +35,19 @@ from helper_functions.model_helper_functions import (
     get_class_labels_from_directory,
 )
 from helper_functions.training_helper_functions import train_model
+from helper_functions.image_dataset_helper_functions import (
+    get_data_set,
+    get_data_set_dirs,
+)
 
 
 def main():
 
+    data_set = get_data_set()
+    data_dir = get_data_set_dirs(data_set)
+
     model_name = get_model_name()
 
-    """
-    For casting defect images only.
-    """
-    data_dir = "./casting_data/casting_data/"
     train_dir = os.path.join(data_dir, "train")
     val_dir = os.path.join(data_dir, "val")
 
@@ -108,6 +111,7 @@ def main():
         device,
         criterion,
         training_mode,
+        dataset=data_set,
     )
 
     model_name_key = f"{model_name}-{training_mode}"
