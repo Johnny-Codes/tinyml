@@ -3,7 +3,7 @@ import json
 import torch
 
 
-def save_model(model, model_name, training_mode, epoch, val_acc):
+def save_model(model, model_name, dataset, training_mode, epoch, val_acc):
     """
     Saves a PyTorch model to the given path.
 
@@ -11,7 +11,7 @@ def save_model(model, model_name, training_mode, epoch, val_acc):
         model: The PyTorch model to save.
         path: The path to save the model to.
     """
-    model_dir = f"./models/{model_name}/{training_mode}"
+    model_dir = f"./models/{dataset}/{model_name}/{training_mode}"
     os.makedirs(model_dir, exist_ok=True)
     torch.save(
         model.state_dict(), f"{model_dir}/{model_name}-{epoch}-{val_acc:.4f}.pth"
@@ -42,3 +42,5 @@ def save_metrics_to_json(metrics, model_name_with_timestamp, filename="metrics.j
 
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
+
+    print(f"Metrics saved to {filename}")

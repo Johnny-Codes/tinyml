@@ -4,16 +4,20 @@ from torchvision import models
 from torchvision.models import (
     MobileNet_V3_Small_Weights,
     MobileNet_V3_Large_Weights,
+    MobileNet_V2_Weights,
 )
 import torch.optim as optim
 from torchinfo import summary
 
 
 def get_model_name() -> str:
-    model_names = {1: "mobilenetv3_small", 2: "mobilenetv3_large"}
+    model_names = {1: "mobilenetv3_small", 2: "mobilenetv3_large", 3: "mobilenetv2"}
 
     print(
-        "Available models:\n" "1. mobilenetv3_small\n" "2. mobilenetv3_large",
+        "Available models:\n"
+        "1. mobilenetv3_small\n"
+        "2. mobilenetv3_large\n"
+        "3. mobilenetv2",
     )
 
     model = int(input("Enter the number corresponding to the model: "))
@@ -31,14 +35,22 @@ def define_model(model_name) -> nn.Module:
         model = models.mobilenet_v3_small(
             weights=MobileNet_V3_Small_Weights.DEFAULT,
         )
+        classification_index = 3
     elif model_name == "mobilenetv3_large":
         model = models.mobilenet_v3_large(
             weight=MobileNet_V3_Large_Weights.DEFAULT,
         )
+        classification_index = 3
+    elif model_name == "mobilenetv2":
+        model = models.mobilenet_v2(
+            weights=MobileNet_V2_Weights.DEFAULT,
+        )
+        classification_index = 1
     else:
         raise ValueError("Invalid model name")
-    num_features = model.classifier[3].in_features
-    model.classifier[3] = nn.Linear(num_features, 2)
+
+    num_features = model.classifier[classification_index].in_features
+    model.classifier[classification_index] = nn.Linear(num_features, 2)
     return model
 
 

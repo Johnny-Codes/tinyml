@@ -1,9 +1,11 @@
-import os
 import time
 import torch
 from helper_functions.general_helper_functions import (
     save_model,
     save_class_labels,
+)
+from helper_functions.image_helper_functions import (
+    plot_confusion_matrix,
 )
 
 
@@ -53,6 +55,42 @@ def validate_one_epoch(model, val_loader, device, loss_function):
     return epoch_loss, epoch_acc
 
 
+def validate_last_epoch(model, val_loader, device, loss_function, model_name, dataset):
+    model.eval()
+    running_loss = 0.0
+    running_corrects = 0
+
+    y_true = []
+    y_pred = []
+
+    with torch.no_grad():
+        for inputs, labels in val_loader:
+            inputs = inputs.to(device)
+            labels = labels.to(device)
+
+            outputs = model(inputs)
+            loss = loss_function(outputs, labels)
+
+            _, preds = torch.max(outputs, 1)
+            running_loss += loss.item() * inputs.size(0)
+            running_corrects += torch.sum(preds == labels.data)
+
+            y_true.extend(labels.cpu().numpy())
+            y_pred.extend(preds.cpu().numpy())
+
+    val_loss = running_loss / len(val_loader.dataset)
+    val_acc = running_corrects.double() / len(val_loader.dataset)
+
+    class_names = model.class_labels
+    plot_confusion_matrix(
+        y_true,
+        y_pred,
+        class_names,
+        f"./models/{dataset}/{model_name}/confusion_matrix.png",
+    )
+    return val_loss, val_acc
+
+
 def train_model(
     model,
     model_name,
@@ -63,6 +101,7 @@ def train_model(
     device,
     loss_function,
     training_mode,
+    dataset,
 ):
     val_accuracies = []
     training_metrics = {}
@@ -87,12 +126,22 @@ def train_model(
         train_loss, train_acc = train_one_epoch(
             model, train_loader, optimizer, device, loss_function
         )
-        val_loss, val_acc = validate_one_epoch(
-            model,
-            val_loader,
-            device,
-            loss_function,
-        )
+        if epoch < num_epochs - 1:
+            val_loss, val_acc = validate_one_epoch(
+                model,
+                val_loader,
+                device,
+                loss_function,
+            )
+        else:
+            val_loss, val_acc = validate_last_epoch(
+                model,
+                val_loader,
+                device,
+                loss_function,
+                model_name,
+                dataset,
+            )
 
         epoch_end_time = time.time()
         epoch_duration = epoch_end_time - epoch_start_time
@@ -117,6 +166,7 @@ def train_model(
                     epoch=epoch,
                     training_mode=training_mode,
                     val_acc=val_acc,
+                    dataset=dataset,
                 )
         except ValueError:
             save_model(
@@ -125,11 +175,12 @@ def train_model(
                 epoch=epoch,
                 training_mode=training_mode,
                 val_acc=val_acc,
+                dataset=dataset,
             )
 
         save_class_labels(
             class_labels=model.class_labels,
-            path=f"./models/{model_name}/class_labels.json",
+            path=f"./models/{dataset}/{model_name}/class_labels.json",
         )
 
         val_accuracies.append(val_acc.item())

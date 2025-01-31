@@ -5,6 +5,7 @@ import matplotlib.patches as patches
 import seaborn as sns
 import numpy as np
 from torchvision import transforms
+from sklearn.metrics import confusion_matrix
 
 
 def save_plot(data, title, ylabel, xlabel, filename):
@@ -229,3 +230,24 @@ def visualize_feature_maps_black_bg(model, input_image, layer_name):
     # Remove all hooks
     for hook in hooks:
         hook.remove()
+
+
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+
+
+def plot_confusion_matrix(y_true, y_pred, class_names, filename):
+    """
+    Plot and save a confusion matrix.
+
+    Args:
+        y_true (list or np.array): True labels.
+        y_pred (list or np.array): Predicted labels.
+        class_names (list): List of class names corresponding to label indices.
+        filename (str): The filename where the confusion matrix will be saved.
+    """
+    cm = confusion_matrix(y_true, y_pred)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=class_names)
+    disp.plot(cmap=plt.cm.Blues)
+    plt.title("Confusion Matrix")
+    plt.savefig(filename, dpi=600)
+    plt.close()
