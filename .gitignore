@@ -11,3 +11,5 @@ testing_adam
 resnetv1
 img_ftr_layers
 __pycache__
+deconv_maps
+filter_kernals
