@@ -5,6 +5,9 @@ import torch
 # import torch.nn as nn
 from torchvision import datasets
 from torch.utils.data import DataLoader
+from helper_functions.image_helper_functions import (
+    visualize_feature_maps_per_layer,
+)
 
 
 # from torch.optim.lr_scheduler import StepLR
@@ -48,8 +51,8 @@ def main():
 
     model_name = get_model_name()
 
-    train_dir = os.path.join(data_dir, "train")
-    val_dir = os.path.join(data_dir, "val")
+    train_dir = os.path.join(data_dir, "train_augmented")
+    val_dir = os.path.join(data_dir, "val_augmented")
 
     data_transforms = mobile_net_data_transforms
 
