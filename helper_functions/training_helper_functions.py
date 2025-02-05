@@ -6,6 +6,7 @@ from helper_functions.general_helper_functions import (
 )
 from helper_functions.image_helper_functions import (
     plot_confusion_matrix,
+    visualize_feature_maps_per_layer,
 )
 
 
@@ -88,6 +89,14 @@ def validate_last_epoch(model, val_loader, device, loss_function, model_name, da
         class_names,
         f"./models/{dataset}/{model_name}/confusion_matrix.png",
     )
+
+    inputs, _ = next(iter(val_loader))
+    input_image = inputs[0].to(device)
+    visualize_feature_maps_per_layer(model, input_image, device)
+
+    input_image_2 = inputs[1].to(device)
+    visualize_feature_maps_per_layer(model, input_image_2, device)
+
     return val_loss, val_acc
 
 

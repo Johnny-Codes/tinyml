@@ -245,6 +245,7 @@ def plot_confusion_matrix(y_true, y_pred, class_names, filename):
         class_names (list): List of class names corresponding to label indices.
         filename (str): The filename where the confusion matrix will be saved.
     """
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     cm = confusion_matrix(y_true, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=class_names)
     disp.plot(cmap=plt.cm.Blues)
