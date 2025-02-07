@@ -1,0 +1,770 @@
+{
+    "mobilenetv3_small-fine-tune-t_16-v_16-e_10": {
+        "model_name": "mobilenetv3_small",
+        "dtg": "20250205-2125",
+        "training_batch_size": 16,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "fine-tune",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 90.09482026100159,
+                "train_loss": 0.11319641921873784,
+                "train_acc": 0.9566372682044323,
+                "val_loss": 0.07206161279635866,
+                "val_acc": 0.9753496503496504,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 90.33204531669617,
+                "train_loss": 0.05282407339061076,
+                "train_acc": 0.9807402382029247,
+                "val_loss": 0.05714870325577595,
+                "val_acc": 0.9776223776223776,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 90.30233311653137,
+                "train_loss": 0.04386530543218258,
+                "train_acc": 0.9839439167797376,
+                "val_loss": 0.026669140914936263,
+                "val_acc": 0.9910839160839161,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 90.76282000541687,
+                "train_loss": 0.0403278485701684,
+                "train_acc": 0.9862618724559022,
+                "val_loss": 0.05027593372071606,
+                "val_acc": 0.9840909090909091,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 90.30687355995178,
+                "train_loss": 0.034789284082188295,
+                "train_acc": 0.9877883310719131,
+                "val_loss": 0.030658659337670324,
+                "val_acc": 0.9921328671328671,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 90.70586729049683,
+                "train_loss": 0.032109759789913594,
+                "train_acc": 0.9881086989295944,
+                "val_loss": 0.036454065684423,
+                "val_acc": 0.9914335664335664,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 90.99509716033936,
+                "train_loss": 0.032132472808072,
+                "train_acc": 0.9888436604854515,
+                "val_loss": 0.03277918330914084,
+                "val_acc": 0.9924825174825175,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 90.49990153312683,
+                "train_loss": 0.029364664938581798,
+                "train_acc": 0.9900874415799789,
+                "val_loss": 0.04916495769108893,
+                "val_acc": 0.9882867132867132,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 90.55889773368835,
+                "train_loss": 0.02824973330504512,
+                "train_acc": 0.9902947384290667,
+                "val_loss": 0.032938126152396004,
+                "val_acc": 0.9916083916083916,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 90.56667733192444,
+                "train_loss": 0.027185631372280666,
+                "train_acc": 0.9899555254032866,
+                "val_loss": 0.0494254794606235,
+                "val_acc": 0.9882867132867132,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 905.3114204406738,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_small-fine-tune-t_32-v_16-e_10": {
+        "model_name": "mobilenetv3_small",
+        "dtg": "20250205-2139",
+        "training_batch_size": 32,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "fine-tune",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 77.92651295661926,
+                "train_loss": 0.10126454811317873,
+                "train_acc": 0.9616500829187395,
+                "val_loss": 0.07649070312268218,
+                "val_acc": 0.9723776223776224,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 80.05578064918518,
+                "train_loss": 0.04279576782879209,
+                "train_acc": 0.9852819237147595,
+                "val_loss": 0.025568193125598094,
+                "val_acc": 0.9898601398601399,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 80.17657661437988,
+                "train_loss": 0.031893854822300435,
+                "train_acc": 0.9893713251922207,
+                "val_loss": 0.029223184984285007,
+                "val_acc": 0.9907342657342657,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 77.92404294013977,
+                "train_loss": 0.028531974717457102,
+                "train_acc": 0.9896163123775064,
+                "val_loss": 0.023470804346206305,
+                "val_acc": 0.9919580419580419,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 77.53728985786438,
+                "train_loss": 0.025438498167466836,
+                "train_acc": 0.9908977838082315,
+                "val_loss": 0.02908525846909347,
+                "val_acc": 0.9893356643356643,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 77.68904161453247,
+                "train_loss": 0.023837663544134583,
+                "train_acc": 0.9912369968340117,
+                "val_loss": 0.015180739212022308,
+                "val_acc": 0.9949300699300699,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 78.57544922828674,
+                "train_loss": 0.02249945984392601,
+                "train_acc": 0.9916892808683853,
+                "val_loss": 0.024250809948064674,
+                "val_acc": 0.993006993006993,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 78.19046878814697,
+                "train_loss": 0.020016373325959905,
+                "train_acc": 0.9928388361224182,
+                "val_loss": 0.013656785602869462,
+                "val_acc": 0.995979020979021,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 77.84970045089722,
+                "train_loss": 0.019892438971788894,
+                "train_acc": 0.9928011457862204,
+                "val_loss": 0.023666141691299623,
+                "val_acc": 0.9919580419580419,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 77.77594709396362,
+                "train_loss": 0.01910156292714227,
+                "train_acc": 0.9930649781396049,
+                "val_loss": 0.03835951922549223,
+                "val_acc": 0.9902097902097902,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 783.9002623558044,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_small-fine-tune-t_64-v_16-e_10": {
+        "model_name": "mobilenetv3_small",
+        "dtg": "20250205-2153",
+        "training_batch_size": 64,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "fine-tune",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 76.52359771728516,
+                "train_loss": 0.09497244048262143,
+                "train_acc": 0.9652872003618271,
+                "val_loss": 0.045872006964832096,
+                "val_acc": 0.9846153846153847,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 76.62320923805237,
+                "train_loss": 0.03776884843231249,
+                "train_acc": 0.9875244987185285,
+                "val_loss": 0.039637043877172214,
+                "val_acc": 0.9856643356643356,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 74.87348461151123,
+                "train_loss": 0.0279382027673146,
+                "train_acc": 0.9907658676315392,
+                "val_loss": 0.052502099147202885,
+                "val_acc": 0.9807692307692307,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 73.89311695098877,
+                "train_loss": 0.026561692662208158,
+                "train_acc": 0.9903889642695612,
+                "val_loss": 0.027755389721548958,
+                "val_acc": 0.9910839160839161,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 75.2090654373169,
+                "train_loss": 0.02021755559979325,
+                "train_acc": 0.9928765264586159,
+                "val_loss": 0.022826925017921915,
+                "val_acc": 0.9931818181818182,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 75.57193541526794,
+                "train_loss": 0.01905189735695091,
+                "train_acc": 0.9931968943162972,
+                "val_loss": 0.03128609705742802,
+                "val_acc": 0.9898601398601399,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 75.80925369262695,
+                "train_loss": 0.018488132381766036,
+                "train_acc": 0.9935737976782753,
+                "val_loss": 0.05652172054141066,
+                "val_acc": 0.9821678321678322,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 75.55953812599182,
+                "train_loss": 0.016859031841380007,
+                "train_acc": 0.9940449268807477,
+                "val_loss": 0.02035949029170892,
+                "val_acc": 0.9933566433566433,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 76.70419096946716,
+                "train_loss": 0.015407540205782977,
+                "train_acc": 0.9940826172169455,
+                "val_loss": 0.013063868534398754,
+                "val_acc": 0.9954545454545455,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 77.13269567489624,
+                "train_loss": 0.013026454966528045,
+                "train_acc": 0.9951002562942861,
+                "val_loss": 0.01582874093673763,
+                "val_acc": 0.9945804195804195,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 758.1002628803253,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_small-full-t_16-v_16-e_10": {
+        "model_name": "mobilenetv3_small",
+        "dtg": "20250205-2216",
+        "training_batch_size": 16,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "full",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 135.23537039756775,
+                "train_loss": 0.03248267032126403,
+                "train_acc": 0.9893901703603195,
+                "val_loss": 0.020636478101528747,
+                "val_acc": 0.9949300699300699,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 134.61107325553894,
+                "train_loss": 0.017271630136463687,
+                "train_acc": 0.9944029850746268,
+                "val_loss": 0.01245272173801339,
+                "val_acc": 0.9963286713286713,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 134.2035026550293,
+                "train_loss": 0.017209701913310976,
+                "train_acc": 0.9946668174280114,
+                "val_loss": 0.03258665231007885,
+                "val_acc": 0.9951048951048951,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 134.67284083366394,
+                "train_loss": 0.01836257087073662,
+                "train_acc": 0.9942899140660334,
+                "val_loss": 0.03084643459076021,
+                "val_acc": 0.9921328671328671,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 134.30890440940857,
+                "train_loss": 0.01720684274264686,
+                "train_acc": 0.9948552691090004,
+                "val_loss": 0.008175138142765215,
+                "val_acc": 0.9977272727272727,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 134.59647274017334,
+                "train_loss": 0.013046594193906691,
+                "train_acc": 0.9955713854967586,
+                "val_loss": 0.010682048455476129,
+                "val_acc": 0.9949300699300699,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 131.93970036506653,
+                "train_loss": 0.013308406967913194,
+                "train_acc": 0.9953263983114728,
+                "val_loss": 0.010744498595753006,
+                "val_acc": 0.9965034965034965,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 131.10136556625366,
+                "train_loss": 0.013122466218560518,
+                "train_acc": 0.9959482888587365,
+                "val_loss": 0.028422170601282333,
+                "val_acc": 0.9921328671328671,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 132.89213061332703,
+                "train_loss": 0.010842925869724056,
+                "train_acc": 0.9963063470526157,
+                "val_loss": 0.017055793412781503,
+                "val_acc": 0.9968531468531469,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 132.75796556472778,
+                "train_loss": 0.011633959616078994,
+                "train_acc": 0.9960425146992311,
+                "val_loss": 0.015422327583711403,
+                "val_acc": 0.9966783216783217,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 1336.4382674694061,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_small-full-t_32-v_16-e_10": {
+        "model_name": "mobilenetv3_small",
+        "dtg": "20250206-2158",
+        "training_batch_size": 32,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "full",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 109.2030839920044,
+                "train_loss": 0.025167763461124724,
+                "train_acc": 0.9917835067088798,
+                "val_loss": 0.01468271061984273,
+                "val_acc": 0.9958041958041958,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 108.13892579078674,
+                "train_loss": 0.014524411916900591,
+                "train_acc": 0.9946856625961104,
+                "val_loss": 0.035207153081572254,
+                "val_acc": 0.9947552447552448,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 109.51623249053955,
+                "train_loss": 0.01274862263205922,
+                "train_acc": 0.9957786823458464,
+                "val_loss": 0.010660189023603172,
+                "val_acc": 0.997027972027972,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 108.35328388214111,
+                "train_loss": 0.0151164986073023,
+                "train_acc": 0.9952698628071762,
+                "val_loss": 0.01648287979856671,
+                "val_acc": 0.9956293706293706,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 109.03076696395874,
+                "train_loss": 0.012531434441782178,
+                "train_acc": 0.9959105985225387,
+                "val_loss": 0.022233996468002518,
+                "val_acc": 0.9963286713286713,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 108.14946913719177,
+                "train_loss": 0.011171625902229742,
+                "train_acc": 0.9961367405397256,
+                "val_loss": 0.013973472542644387,
+                "val_acc": 0.995979020979021,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 109.30375146865845,
+                "train_loss": 0.009633427478868823,
+                "train_acc": 0.9965324890698024,
+                "val_loss": 0.013025630844247606,
+                "val_acc": 0.9968531468531469,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 108.31916427612305,
+                "train_loss": 0.011140119369020908,
+                "train_acc": 0.996438263229308,
+                "val_loss": 0.01597865238984848,
+                "val_acc": 0.995979020979021,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 107.60917329788208,
+                "train_loss": 0.0073712889127558485,
+                "train_acc": 0.9973428312980551,
+                "val_loss": 0.0218436424191432,
+                "val_acc": 0.9945804195804195,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 107.91878747940063,
+                "train_loss": 0.012070917599067995,
+                "train_acc": 0.9963628825569123,
+                "val_loss": 0.013311422077548301,
+                "val_acc": 0.9965034965034965,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 1085.5556359291077,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_small-full-t_64-v_16-e_10": {
+        "model_name": "mobilenetv3_small",
+        "dtg": "20250206-2217",
+        "training_batch_size": 64,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "full",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 101.88911867141724,
+                "train_loss": 0.022575780140643334,
+                "train_acc": 0.9916139001959897,
+                "val_loss": 0.05465910745551785,
+                "val_acc": 0.9917832167832168,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 103.03357100486755,
+                "train_loss": 0.010374607847187666,
+                "train_acc": 0.9964571083974069,
+                "val_loss": 0.008979507982430815,
+                "val_acc": 0.9984265734265734,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 101.3966612815857,
+                "train_loss": 0.012187566077657069,
+                "train_acc": 0.9957033016734509,
+                "val_loss": 0.008960034111030479,
+                "val_acc": 0.997027972027972,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 98.79925322532654,
+                "train_loss": 0.007324363274290276,
+                "train_acc": 0.9972486054575607,
+                "val_loss": 0.018317618268143435,
+                "val_acc": 0.997027972027972,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 98.52837991714478,
+                "train_loss": 0.012368692104562453,
+                "train_acc": 0.9958352178501432,
+                "val_loss": 0.026600684252683797,
+                "val_acc": 0.9956293706293706,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 100.1857373714447,
+                "train_loss": 0.008762357377679131,
+                "train_acc": 0.9969659279360771,
+                "val_loss": 0.014277861424495341,
+                "val_acc": 0.9972027972027973,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 98.54429888725281,
+                "train_loss": 0.007898722176368904,
+                "train_acc": 0.9972109151213628,
+                "val_loss": 0.006911723582243321,
+                "val_acc": 0.9982517482517482,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 98.59049773216248,
+                "train_loss": 0.0075140178456197864,
+                "train_acc": 0.997361676466154,
+                "val_loss": 0.046567561048511674,
+                "val_acc": 0.9914335664335664,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 98.91732835769653,
+                "train_loss": 0.008506215407828775,
+                "train_acc": 0.9969470827679783,
+                "val_loss": 0.01069345405885529,
+                "val_acc": 0.9984265734265734,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 101.3578109741211,
+                "train_loss": 0.006576736299408307,
+                "train_acc": 0.9974935926428463,
+                "val_loss": 0.09077150554740435,
+                "val_acc": 0.9844405594405594,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 1001.2576620578766,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_large-fine-tune-t_16-v_16-e_10": {
+        "model_name": "mobilenetv3_large",
+        "dtg": "20250206-2235",
+        "training_batch_size": 16,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "fine-tune",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 100.55858516693115,
+                "train_loss": 0.6812303146858767,
+                "train_acc": 0.5857832051861902,
+                "val_loss": 0.6643883169114173,
+                "val_acc": 0.5867132867132867,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 99.07019376754761,
+                "train_loss": 0.6633279976416332,
+                "train_acc": 0.6108661239258254,
+                "val_loss": 0.619442497183393,
+                "val_acc": 0.675,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 102.16365075111389,
+                "train_loss": 0.6496625681026262,
+                "train_acc": 0.6260176390773405,
+                "val_loss": 0.6136816051456478,
+                "val_acc": 0.6681818181818182,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 103.37802004814148,
+                "train_loss": 0.6440325091278034,
+                "train_acc": 0.6326511382481531,
+                "val_loss": 0.5915176580002258,
+                "val_acc": 0.7073426573426573,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 103.4407742023468,
+                "train_loss": 0.6391361056994515,
+                "train_acc": 0.635666365143977,
+                "val_loss": 0.583849606939129,
+                "val_acc": 0.7057692307692308,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 104.29594588279724,
+                "train_loss": 0.6338842538315014,
+                "train_acc": 0.643166742047339,
+                "val_loss": 0.6091174620848435,
+                "val_acc": 0.6753496503496503,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 103.67934823036194,
+                "train_loss": 0.6322009876161504,
+                "train_acc": 0.645974672094075,
+                "val_loss": 0.5800468643228491,
+                "val_acc": 0.7015734265734266,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 103.90596795082092,
+                "train_loss": 0.6291894624356534,
+                "train_acc": 0.6512701643298657,
+                "val_loss": 0.606285946019046,
+                "val_acc": 0.6784965034965035,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 103.30150747299194,
+                "train_loss": 0.6273932079015841,
+                "train_acc": 0.6521935775667118,
+                "val_loss": 0.5833265381259518,
+                "val_acc": 0.7024475524475524,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 102.31854772567749,
+                "train_loss": 0.6266030497847864,
+                "train_acc": 0.6484245439469319,
+                "val_loss": 0.6056676283582941,
+                "val_acc": 0.6779720279720279,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 1026.126538515091,
+            "total_epochs": 10
+        }
+    },
+    "mobilenetv3_large-fine-tune-t_32-v_16-e_10": {
+        "model_name": "mobilenetv3_large",
+        "dtg": "20250206-2253",
+        "training_batch_size": 32,
+        "validation_batch_size": 16,
+        "device": "NVIDIA GeForce GTX 1080 Ti",
+        "training_mode": "fine-tune",
+        "feature_layer_frozen": null,
+        "criterion": "CrossEntropyLoss",
+        "optimizer": "Adam",
+        "scheduler": null,
+        "training_metrics": {
+            "0": {
+                "epoch_duration": 97.02479553222656,
+                "train_loss": 0.6656458789759877,
+                "train_acc": 0.6057402382029248,
+                "val_loss": 0.6363666511082149,
+                "val_acc": 0.6388111888111888,
+                "learning_rate": 0.001
+            },
+            "1": {
+                "epoch_duration": 96.71644926071167,
+                "train_loss": 0.6473063668675612,
+                "train_acc": 0.631727725011307,
+                "val_loss": 0.6897935458413371,
+                "val_acc": 0.5987762237762237,
+                "learning_rate": 0.001
+            },
+            "2": {
+                "epoch_duration": 96.01780915260315,
+                "train_loss": 0.6410672439001955,
+                "train_acc": 0.6383612241821197,
+                "val_loss": 0.6358411833122893,
+                "val_acc": 0.6431818181818182,
+                "learning_rate": 0.001
+            },
+            "3": {
+                "epoch_duration": 96.35134482383728,
+                "train_loss": 0.6332870128646113,
+                "train_acc": 0.6456543042363938,
+                "val_loss": 0.6313380795967328,
+                "val_acc": 0.6753496503496503,
+                "learning_rate": 0.001
+            },
+            "4": {
+                "epoch_duration": 96.65634226799011,
+                "train_loss": 0.6240281406596255,
+                "train_acc": 0.6552088044625358,
+                "val_loss": 0.6407265584368805,
+                "val_acc": 0.6484265734265734,
+                "learning_rate": 0.001
+            },
+            "5": {
+                "epoch_duration": 96.51146745681763,
+                "train_loss": 0.6225679976609827,
+                "train_acc": 0.6571498567767224,
+                "val_loss": 0.5917820282332547,
+                "val_acc": 0.6912587412587412,
+                "learning_rate": 0.001
+            },
+            "6": {
+                "epoch_duration": 96.46311092376709,
+                "train_loss": 0.6177635895222825,
+                "train_acc": 0.6601273933363485,
+                "val_loss": 0.6096880324236996,
+                "val_acc": 0.6648601398601398,
+                "learning_rate": 0.001
+            },
+            "7": {
+                "epoch_duration": 96.16861033439636,
+                "train_loss": 0.6145510051327019,
+                "train_acc": 0.6660447761194029,
+                "val_loss": 0.5824612624995358,
+                "val_acc": 0.7015734265734266,
+                "learning_rate": 0.001
+            },
+            "8": {
+                "epoch_duration": 96.66720461845398,
+                "train_loss": 0.6132924123198922,
+                "train_acc": 0.6655548017488315,
+                "val_loss": 0.6097524095248509,
+                "val_acc": 0.6659090909090909,
+                "learning_rate": 0.001
+            },
+            "9": {
+                "epoch_duration": 96.47661876678467,
+                "train_loss": 0.607380741208311,
+                "train_acc": 0.6736205336951605,
+                "val_loss": 0.5746133250373227,
+                "val_acc": 0.7062937062937062,
+                "learning_rate": 0.001
+            },
+            "total_training_time": 965.0678770542145,
+            "total_epochs": 10
+        }
+    }
+}
