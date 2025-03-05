@@ -3,8 +3,8 @@ import random
 import shutil
 
 
-def create_test_set(source_dir, dest_dir, num_samples=100):
-    classes = ["def_front", "ok_front"]
+def create_test_set(source_dir, dest_dir, num_samples=262):
+    classes = ["ok_front"]
 
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
@@ -22,12 +22,12 @@ def create_test_set(source_dir, dest_dir, num_samples=100):
         for image in selected_images:
             src_path = os.path.join(class_dir, image)
             dest_path = os.path.join(dest_class_dir, image)
-            shutil.copy(src_path, dest_path)
+            shutil.move(src_path, dest_path)
 
-    print(f"Copied {num_samples} images from each class to {dest_dir}")
+    print(f"Moved {num_samples} images from each class to {dest_dir}")
 
 
 if __name__ == "__main__":
     source_directory = "./casting_data/casting_data/train"
-    destination_directory = "./casting_data/casting_data/test"
+    destination_directory = "./casting_data/casting_data/val"
     create_test_set(source_directory, destination_directory)

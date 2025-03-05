@@ -111,6 +111,9 @@ def train_model(
     loss_function,
     training_mode,
     dataset,
+    t_size,
+    v_size,
+    q,
 ):
     val_accuracies = []
     training_metrics = {}
@@ -135,22 +138,13 @@ def train_model(
         train_loss, train_acc = train_one_epoch(
             model, train_loader, optimizer, device, loss_function
         )
-        if epoch < num_epochs - 1:
-            val_loss, val_acc = validate_one_epoch(
-                model,
-                val_loader,
-                device,
-                loss_function,
-            )
-        else:
-            val_loss, val_acc = validate_last_epoch(
-                model,
-                val_loader,
-                device,
-                loss_function,
-                model_name,
-                dataset,
-            )
+
+        val_loss, val_acc = validate_one_epoch(
+            model,
+            val_loader,
+            device,
+            loss_function,
+        )
 
         epoch_end_time = time.time()
         epoch_duration = epoch_end_time - epoch_start_time
@@ -176,6 +170,8 @@ def train_model(
                     training_mode=training_mode,
                     val_acc=val_acc,
                     dataset=dataset,
+                    t_size=t_size,
+                    v_size=v_size,
                 )
         except ValueError:
             save_model(
@@ -185,6 +181,8 @@ def train_model(
                 training_mode=training_mode,
                 val_acc=val_acc,
                 dataset=dataset,
+                t_size=t_size,
+                v_size=v_size,
             )
 
         save_class_labels(
@@ -200,6 +198,9 @@ def train_model(
         print(f"Epoch Time: {epoch_duration:.2f} seconds")
         print()
 
+        if max(val_accuracies) > 0.995:
+            break
+
     total_end_time = time.time()
     total_training_time = total_end_time - total_start_time
 
@@ -207,4 +208,5 @@ def train_model(
     training_metrics["total_epochs"] = num_epochs
 
     print(f"Total Training Time: {total_training_time:.2f} seconds")
+
     return training_metrics

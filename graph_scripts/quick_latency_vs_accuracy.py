@@ -3,24 +3,24 @@ import matplotlib.pyplot as plt
 
 # Define the file paths
 file_paths = [
-    "mnv3s-fine-16-latencies.json",
-    "mnv3s-fine-32-latencies.json",
-    "mnv3s-fine-64-latencies.json",
-    "mnv3s-full-16-latencies.json",
-    "mnv3s-full-32-latencies.json",
-    "mnv3s-full-64-latencies.json",
-    "mnv3l-fine-16-latencies.json",
-    "mnv3l-fine-32-latencies.json",
-    "mnv3l-fine-64-latencies.json",
-    "mnv3l-full-16-latencies.json",
-    "mnv3l-full-32-latencies.json",
-    "mnv3l-full-64-latencies.json",
-    "mnv2-fine-16-latencies.json",
-    "mnv2-fine-32-latencies.json",
-    "mnv2-fine-64-latencies.json",
-    "mnv2-full-16-latencies.json",
-    "mnv2-full-32-latencies.json",
-    "mnv2-full-64-latencies.json",
+    "./results/mnv3s-fine-16-latencies.json",
+    "./results/mnv3s-fine-32-latencies.json",
+    "./results/mnv3s-fine-64-latencies.json",
+    "./results/mnv3s-full-16-latencies.json",
+    "./results/mnv3s-full-32-latencies.json",
+    "./results/mnv3s-full-64-latencies.json",
+    "./results/mnv3l-fine-16-latencies.json",
+    "./results/mnv3l-fine-32-latencies.json",
+    "./results/mnv3l-fine-64-latencies.json",
+    "./results/mnv3l-full-16-latencies.json",
+    "./results/mnv3l-full-32-latencies.json",
+    "./results/mnv3l-full-64-latencies.json",
+    "./results/mnv2-fine-16-latencies.json",
+    "./results/mnv2-fine-32-latencies.json",
+    "./results/mnv2-fine-64-latencies.json",
+    "./results/mnv2-full-16-latencies.json",
+    "./results/mnv2-full-32-latencies.json",
+    "./results/mnv2-full-64-latencies.json",
 ]
 
 
@@ -94,5 +94,5 @@ plt.legend(handles=handles, title="Model Groups")
 plt.xlabel("Average Latency (seconds)")
 plt.ylabel("Accuracy (%)")
 plt.title("Average Latency vs Accuracy for Different Models")
-plt.savefig("average_latency_vs_accuracy.png", dpi=600)
+plt.savefig("./results_images/average_latency_vs_accuracy.png", dpi=600)
 plt.show()

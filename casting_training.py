@@ -1,28 +1,11 @@
 import os
 import datetime
 import torch
-
-# import torch.nn as nn
 from torchvision import datasets
 from torch.utils.data import DataLoader
-from helper_functions.image_helper_functions import (
-    visualize_feature_maps_per_layer,
-)
-
-
-# from torch.optim.lr_scheduler import StepLR
-
-
-# import matplotlib.pyplot as plt
-# from helper_functions.image_helper_functions import (
-#     save_plot,
-#     save_sample_images,
-#     visualize_feature_maps,
-#     visualize_feature_maps_per_layer,
-#     visualize_feature_maps_black_bg,
-# )
 from helper_functions.general_helper_functions import (
     save_metrics_to_json,
+    set_seed,
 )
 
 from helper_functions.data_transforms import mobile_net_data_transforms
@@ -45,14 +28,14 @@ from helper_functions.image_dataset_helper_functions import (
 
 
 def main():
-
+    set_seed(42)
     data_set = get_data_set()
     data_dir = get_data_set_dirs(data_set)
 
     model_name = get_model_name()
 
-    train_dir = os.path.join(data_dir, "train_augmented")
-    val_dir = os.path.join(data_dir, "val_augmented")
+    train_dir = os.path.join(data_dir, "g_train")
+    val_dir = os.path.join(data_dir, "g_val")
 
     data_transforms = mobile_net_data_transforms
 
@@ -104,6 +87,8 @@ def main():
     if print_summary == "y":
         print_model_summary(model)
 
+    q = input("Quantize awareness training? (y/n)")
+
     training_metrics = train_model(
         model,
         model_name,
@@ -115,9 +100,14 @@ def main():
         criterion,
         training_mode,
         dataset=data_set,
+        t_size=training_batch_size,
+        v_size=validation_batch_size,
+        q=q,
     )
-
-    model_name_key = f"{model_name}-{training_mode}"
+    if q == "n":
+        model_name_key = f"{model_name}-{training_mode}-t_{training_batch_size}-v_{validation_batch_size}-e_{training_metrics['total_epochs']}"
+    else:
+        model_name_key = f"qat_{model_name}-{training_mode}-t_{training_batch_size}-v_{validation_batch_size}-e_{training_metrics['total_epochs']}"
 
     data = {
         "model_name": model_name,

@@ -6,9 +6,9 @@ import seaborn as sns
 
 # Define the file paths
 file_paths = [
-    "mnv3s-16-latencies.json",
-    "mnv3s-32-latencies.json",
-    "mnv3s-64-latencies.json",
+    "mnv3s-fine-16-latencies.json",
+    "mnv3s-fine-32-latencies.json",
+    "mnv3s-fine-64-latencies.json",
     "mnv3s-full-16-latencies.json",
     "mnv3s-full-32-latencies.json",
     "mnv3s-full-64-latencies.json",
@@ -77,5 +77,6 @@ plt.boxplot([latency_data[model] for model in model_names], labels=model_names)
 plt.xlabel("Models")
 plt.ylabel("Latency (seconds)")
 plt.title("Latency Box Plot for Different Models")
+plt.xticks(rotation=45)
 plt.savefig("latency_box_plots.png", dpi=600)
 plt.show()

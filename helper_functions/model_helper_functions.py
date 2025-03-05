@@ -1,13 +1,9 @@
 import os
 import torch.nn as nn
 from torchvision import models
-from torchvision.models import (
-    MobileNet_V3_Small_Weights,
-    MobileNet_V3_Large_Weights,
-    MobileNet_V2_Weights,
-)
 import torch.optim as optim
 from torchinfo import summary
+from ultralytics import YOLO
 
 
 def get_model_name() -> str:
@@ -17,7 +13,8 @@ def get_model_name() -> str:
         "Available models:\n"
         "1. mobilenetv3_small\n"
         "2. mobilenetv3_large\n"
-        "3. mobilenetv2",
+        "3. mobilenetv2\n",
+        "3. YOLOv8\n",
     )
 
     model = int(input("Enter the number corresponding to the model: "))
@@ -32,20 +29,28 @@ def get_model_name() -> str:
 
 def define_model(model_name) -> nn.Module:
     if model_name == "mobilenetv3_small":
+        from torchvision.models import MobileNet_V3_Small_Weights
+
         model = models.mobilenet_v3_small(
             weights=MobileNet_V3_Small_Weights.DEFAULT,
         )
         classification_index = 3
     elif model_name == "mobilenetv3_large":
+        from torchvision.models import MobileNet_V3_Large_Weights
+
         model = models.mobilenet_v3_large(
             weight=MobileNet_V3_Large_Weights.DEFAULT,
         )
         classification_index = 3
     elif model_name == "mobilenetv2":
+        from torchvision.models import MobileNet_V2_Weights
+
         model = models.mobilenet_v2(
             weights=MobileNet_V2_Weights.DEFAULT,
         )
         classification_index = 1
+    elif model_name == "YOLOv8":
+        handle_yolo_models()
     else:
         raise ValueError("Invalid model name")
 
@@ -54,11 +59,27 @@ def define_model(model_name) -> nn.Module:
     return model
 
 
+def handle_yolo_models():
+    scheme = {}
+    model_list = ["yolov8n-cls", "yolov8s-cls", "yolov8x-cls"]
+    scheme["model_name"] = int(
+        input("Enter the model name:\n1. YOLOv8n\n2. YOLOv8s\n3. YOLOv8x\n")
+    )
+    scheme["training_type"] = int(
+        input("Enter the training type:\n1. fine-tune\n2. full\n")
+    )
+
+    scheme["model_name"] = model_list[scheme["model_name"] - 1]
+
+    return 0
+
+
 def get_training_mode() -> str:
     training_modes = {1: "fine-tune", 2: "full", 3: "partial"}
 
     print(
-        "Available training modes: \n" "1. fine-tune\n" "2. full\n" "3. partial",
+        "Available training modes: \n 1. fine-tune\n 2. full\n 3. partial\n",
+        "4. quantized aware training\n",
     )
 
     mode = int(input("Enter the number corresponding to the training mode: "))

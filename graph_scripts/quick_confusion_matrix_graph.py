@@ -5,9 +5,9 @@ import seaborn as sns
 
 # Define the file paths
 file_paths = [
-    "mnv3s-16-latencies.json",
-    "mnv3s-32-latencies.json",
-    "mnv3s-64-latencies.json",
+    "mnv3s-fine-16-latencies.json",
+    "mnv3s-fine-32-latencies.json",
+    "mnv3s-fine-64-latencies.json",
     "mnv3s-full-16-latencies.json",
     "mnv3s-full-32-latencies.json",
     "mnv3s-full-64-latencies.json",

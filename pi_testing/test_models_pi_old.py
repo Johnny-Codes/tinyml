@@ -3,37 +3,50 @@ import torchvision.transforms as transforms
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
 from torchvision.models import (
-    # mobilenet_v3_large,
-    # mobilenet_v3_small,
+    mobilenet_v3_large,
+    mobilenet_v3_small,
     mobilenet_v2,
 )
 import time
 import json
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+from pi_testing.models_and_paths_dir import models_and_paths
 
-models = {
-    # "mnv2-fine-16": "fine-tune/mobilenetv2-9-t16-v16-0.9741.pth",
-    # "mnv2-fine-32": "fine-tune/mobilenetv2-6-t32-v16-0.9719.pth",
-    # "mnv2-fine-64": "fine-tune/mobilenetv2-9-t64-v16-0.9712.pth",
-    "mnv2-full-16": "full/mobilenetv2-7-t16-v16-0.9995.pth",
-    "mnv2-full-32": "full/mobilenetv2-5-t32-v16-0.9995.pth",
-    "mnv2-full-64": "full/mobilenetv2-2-t64-v16-0.9995.pth",
-}
 
-# model_architecture = mobilenet_v3_large(weights=None)
-model_architecture = mobilenet_v2(weights=None)
-for key in models.keys():
-    # Load the model
-    model_path = f"./models/casting/mobilenetv2/{models[key]}"
+mv2_models = models_and_paths
+
+
+def get_model_architecture(model_name):
+    if model_name == "mobilenet_v3_large":
+        return mobilenet_v3_large(weights=None)
+    elif model_name == "mobilenet_v3_small":
+        return mobilenet_v3_small(weights=None)
+    elif model_name == "mobilenet_v2":
+        return mobilenet_v2(weights=None)
+    else:
+        raise ValueError(f"Unknown model name: {model_name}")
+
+
+# Create results directory if it doesn't exist
+results_dir = "./results/"
+os.makedirs(results_dir, exist_ok=True)
+
+for key, model_path in mv2_models.items():
+    # Load the model architecture
+    model_name = "mobilenet_v3_small"
+    model_architecture = get_model_architecture(model_name)
+
+    # Load the model weights
+    model_path = f"../models/casting/{model_path}"
     model = model_architecture
-    # for v3
-    # model.classifier[3] = torch.nn.Linear(
-    #     model.classifier[3].in_features, 2
-    # )  # Assuming 2 classes
-    # for v2
-    model.classifier[1] = torch.nn.Linear(model.classifier[1].in_features, 2)
+    if model_name.startswith("mobilenet_v3"):
+        model.classifier[3] = torch.nn.Linear(model.classifier[3].in_features, 2)
+    elif model_name == "mobilenet_v2":
+        model.classifier[1] = torch.nn.Linear(model.classifier[1].in_features, 2)
+
     # Check if CUDA is available and move the model to the appropriate device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.load_state_dict(torch.load(model_path, map_location=device))
@@ -41,7 +54,7 @@ for key in models.keys():
     model.eval()
 
     # Define the test dataset and dataloader
-    test_dir = "./casting_data/casting_data/test_augmented/"
+    test_dir = "./g_test_casting"
     transform = transforms.Compose(
         [
             transforms.Resize((224, 224)),
@@ -95,6 +108,15 @@ for key in models.keys():
     cm = confusion_matrix(y_true, y_pred)
     cm_list = cm.tolist()  # Convert to list for JSON serialization
 
+    # Compute precision, recall, and F1 score
+    precision = precision_score(y_true, y_pred, average="weighted")
+    recall = recall_score(y_true, y_pred, average="weighted")
+    f1 = f1_score(y_true, y_pred, average="weighted")
+
+    print(f"Precision: {precision:.4f}")
+    print(f"Recall: {recall:.4f}")
+    print(f"F1 Score: {f1:.4f}")
+
     # Save the latencies and results to a JSON file
     results = {
         "model_name": key,
@@ -105,9 +127,12 @@ for key in models.keys():
         "true_labels": y_true,
         "predicted_labels": y_pred,
         "confusion_matrix": cm_list,
+        "precision": precision,
+        "recall": recall,
+        "f1_score": f1,
     }
 
-    with open(f"{key}-latencies.json", "w") as f:
+    with open(f"{results_dir}{key}-latencies.json", "w") as f:
         json.dump(results, f, indent=4)
 
     # Create and save a box plot of the latencies
@@ -115,5 +140,5 @@ for key in models.keys():
     plt.boxplot(latencies)
     plt.title("Latency Box Plot")
     plt.ylabel("Latency (seconds)")
-    plt.savefig(f"{key}-latency-boxplot.png")
+    plt.savefig(f"{results_dir}{key}-latency-boxplot.png")
     plt.close()
