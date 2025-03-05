@@ -1,288 +1,288 @@
 [
     {
-        "model1": "mnv3s-16",
-        "model2": "mnv3s-32",
+        "model1": "mnv3s-fine-16",
+        "model2": "mnv3s-fine-32",
         "t_stat": 0.6700514373614895,
         "p_value": 0.5028733791635668
     },
     {
-        "model1": "mnv3s-16",
-        "model2": "mnv3s-64",
+        "model1": "mnv3s-fine-16",
+        "model2": "mnv3s-fine-64",
         "t_stat": 1.4056251974971132,
         "p_value": 0.1599325910751337
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3s-full-16",
         "t_stat": 1.0267963271290252,
         "p_value": 0.30459403555209924
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3s-full-32",
         "t_stat": -3.2063578066624756,
         "p_value": 0.0013575153406159995
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3s-full-64",
         "t_stat": -4.157355454868375,
         "p_value": 3.304038517613374e-05
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3l-fine-16",
         "t_stat": -265.7849673754359,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3l-fine-32",
         "t_stat": -277.4380994758256,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3l-fine-64",
         "t_stat": -276.1653735613068,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3l-full-16",
         "t_stat": -269.61397230023954,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3l-full-32",
         "t_stat": -293.7506060639425,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv3l-full-64",
         "t_stat": -312.18355290711185,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv2-fine-16",
         "t_stat": -416.0133134299916,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv2-fine-32",
         "t_stat": -423.31457450293885,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv2-fine-64",
         "t_stat": -422.17815227738834,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv2-full-16",
         "t_stat": -404.275821975685,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv2-full-32",
         "t_stat": -424.9492698247038,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-16",
+        "model1": "mnv3s-fine-16",
         "model2": "mnv2-full-64",
         "t_stat": -436.3478256871549,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
-        "model2": "mnv3s-64",
+        "model1": "mnv3s-fine-32",
+        "model2": "mnv3s-fine-64",
         "t_stat": 0.7332636644139358,
         "p_value": 0.46345137794801305
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3s-full-16",
         "t_stat": 0.34347016493102367,
         "p_value": 0.7312673601134625
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3s-full-32",
         "t_stat": -3.830679007486048,
         "p_value": 0.0001302440795833445
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3s-full-64",
         "t_stat": -4.787971815044565,
         "p_value": 1.7612451016150647e-06
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3l-fine-16",
         "t_stat": -264.63379300429614,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3l-fine-32",
         "t_stat": -276.1843224323717,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3l-fine-64",
         "t_stat": -274.9302342830767,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3l-full-16",
         "t_stat": -268.47590350797253,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3l-full-32",
         "t_stat": -292.2546315253566,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv3l-full-64",
         "t_stat": -310.3117896183393,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv2-fine-16",
         "t_stat": -413.7998252242876,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv2-fine-32",
         "t_stat": -421.08683189261785,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv2-fine-64",
         "t_stat": -419.92080809308453,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv2-full-16",
         "t_stat": -402.2142589396293,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv2-full-32",
         "t_stat": -422.62115178901473,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-32",
+        "model1": "mnv3s-fine-32",
         "model2": "mnv2-full-64",
         "t_stat": -433.8416018354568,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3s-full-16",
         "t_stat": -0.40266259977328933,
         "p_value": 0.6872233647621888
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3s-full-32",
         "t_stat": -4.527964198314215,
         "p_value": 6.172905808149403e-06
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3s-full-64",
         "t_stat": -5.495928124833424,
         "p_value": 4.1914717014167216e-08
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3l-fine-16",
         "t_stat": -264.0470877267833,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3l-fine-32",
         "t_stat": -275.52790179417445,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3l-fine-64",
         "t_stat": -274.28603384505396,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3l-full-16",
         "t_stat": -267.8951454490421,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3l-full-32",
         "t_stat": -291.4387577569979,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv3l-full-64",
         "t_stat": -309.25003774687593,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv2-fine-16",
         "t_stat": -412.4728583737715,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv2-fine-32",
         "t_stat": -419.74795122078746,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv2-fine-64",
         "t_stat": -418.56321926899943,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv2-full-16",
         "t_stat": -400.98964275535485,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv2-full-32",
         "t_stat": -421.2167904570345,
         "p_value": 0.0
     },
     {
-        "model1": "mnv3s-64",
+        "model1": "mnv3s-fine-64",
         "model2": "mnv2-full-64",
         "t_stat": -432.31771295502114,
         "p_value": 0.0
