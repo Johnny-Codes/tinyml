@@ -4,8 +4,8 @@ import os
 import random
 
 # Define the directories
-ok_front_dir = r"./casting_512x512/casting_512x512/ok_front"
-def_front_dir = r"./casting_512x512/casting_512x512/def_front"
+ok_front_dir = r"../casting_512x512/casting_512x512/ok_front"
+def_front_dir = r"../casting_512x512/casting_512x512/def_front"
 
 # Get a list of all files in each directory
 ok_front_images = [
@@ -34,16 +34,16 @@ fig, axes = plt.subplots(1, 2, figsize=(10, 5))  # 1 row, 2 columns
 
 # Plot the ok_front image
 axes[0].imshow(img_ok)
-axes[0].set_title("ok_front", fontsize=16)
+axes[0].set_title("Non-Defective", fontsize=16)
 axes[0].axis("off")  # Turn off axis labels
 
 # Plot the def_front image
 axes[1].imshow(img_def)
-axes[1].set_title("def_front", fontsize=16)
+axes[1].set_title("Defective", fontsize=16)
 axes[1].axis("off")  # Turn off axis labels
 
 # Set the title of the figure
-fig.suptitle("Sample Images", fontsize=20, fontweight="bold")
+fig.suptitle("Sample Casting Images", fontsize=20, fontweight="bold")
 
 # Save the figure
 plt.tight_layout(rect=[0, 0.03, 1, 0.95])  # Adjust layout to make room for the suptitle

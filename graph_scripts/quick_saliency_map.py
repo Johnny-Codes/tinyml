@@ -8,13 +8,17 @@ import cv2
 
 # Load the model
 model_path = (
-    "./models/casting/mobilenetv3_small/full/mobilenetv3_small-1-t32-v16-0.9986.pth"
+    "../models/casting/mobilenetv3_small/full/mobilenetv3_small-1-t32-v16-0.9986.pth"
 )
 model = models.mobilenet_v3_small()
 model.classifier[3] = torch.nn.Linear(
     model.classifier[3].in_features, 2
 )  # Adjust the classifier layer
-model.load_state_dict(torch.load(model_path))
+
+# Load the model state dict with map_location to CPU
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+model.load_state_dict(torch.load(model_path, map_location=device))
+model.to(device)
 model.eval()
 
 
@@ -117,13 +121,19 @@ def plot_saliency_maps(model, image_paths, output_path):
         image = image.resize(
             (224, 224)
         )  # Resize the original image to match the CAM size
-        image_tensor = preprocess_image(image_path)
+        image_tensor = preprocess_image(image_path).to(device)
 
         # Plot original image
         axes[i].imshow(image)
         axes[i].axis("off")
+        image_class = image_path.split("/")[-2]
+        image_name = ""
+        if image_class == "ok_front":
+            image_name = "Non-defective"
+        else:
+            image_name = "Defective"
         axes[i].set_title(
-            f"Original Image - {image_path.split('/')[-2]}", y=1.0, fontsize=16
+            f"{image_name}", y=1.0, fontsize=16
         )  # Class label, title above image
 
         # Generate CAM for the last layer
@@ -132,8 +142,9 @@ def plot_saliency_maps(model, image_paths, output_path):
             image_tensor, target_class=0
         )  # Assuming class 0 for visualization
 
-        # Overlay the CAM on the original image
+        # Reverse the color map
         heatmap = cv2.applyColorMap(np.uint8(255 * cam), cv2.COLORMAP_JET)
+        # heatmap = cv2.bitwise_not(heatmap)  # Reverse the color map
         heatmap = np.float32(heatmap) / 255
         cam_image = heatmap + np.float32(image) / 255
         cam_image = cam_image / np.max(cam_image)
@@ -141,7 +152,26 @@ def plot_saliency_maps(model, image_paths, output_path):
         # Plot the CAM image
         axes[i + 2].imshow(cam_image)
         axes[i + 2].axis("off")
-        axes[i + 2].set_title("Last Layer Grad-CAM", y=1.0)  # Title above image
+        # axes[i + 2].set_title("Grad-CAM", y=0.0)  # Title above image
+
+    # Add a color bar as a legend
+    cbar = fig.colorbar(
+        plt.cm.ScalarMappable(cmap="jet_r"),
+        ax=axes,
+        orientation="horizontal",
+        fraction=0.05,  # Adjust fraction to control the size of the color bar
+        pad=0.05,  # Adjust pad to control the spacing between the color bar and the plot
+    )
+    cbar.ax.tick_params(labelsize=14, colors="black")
+    cbar.ax.set_position(
+        [0.333333334, 0.24825, 0.333333334, 0.25]  # [left, bottom, width, height]
+    )
+
+    cbar.set_label(
+        "Grad-CAM Intensity",
+        fontsize=18,
+        color="black",
+    )
 
     plt.tight_layout()
 
@@ -151,10 +181,9 @@ def plot_saliency_maps(model, image_paths, output_path):
 
 if __name__ == "__main__":
     image_paths = [
-        "./casting_data/casting_data/g_val/def_front/cast_def_0_40.jpeg",
-        "./casting_data/casting_data/g_val/ok_front/cast_ok_0_8.jpeg",
+        "../casting_data/casting_data/g_val/def_front/cast_def_0_350.jpeg",
+        "../casting_data/casting_data/g_val/ok_front/cast_ok_0_307.jpeg",
     ]  # Replace with your image paths
-    output_path = (
-        "saliency_maps_grid_output_2x2.png"  # Replace with your desired output path
-    )
+    output_path = "updated_saliency_maps_grid_output_2x2.png"
+    # Replace with your desired output path
     plot_saliency_maps(model, image_paths, output_path)
